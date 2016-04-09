@@ -11,13 +11,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utility.Settings;
 
 import java.io.IOException;
 
 public class Launcher extends Application {
-
-    public static int h = 800;
-    public static int w = 600;
 
     public static void main(String[] args) {
         launch(args);
@@ -27,7 +25,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("startscreen.fxml"));
         primaryStage.setTitle("ZombieSkoro");
-        primaryStage.setScene(new Scene(root, h, w));
+        primaryStage.setScene(new Scene(root, Settings.HEIGHT, Settings.WIDTH));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

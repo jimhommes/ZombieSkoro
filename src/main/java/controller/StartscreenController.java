@@ -46,7 +46,7 @@ public class StartscreenController implements Initializable {
             Parent newRoot;
             try {
                 newRoot = FXMLLoader.load(getClass().getClassLoader().getResource("main.fxml"));
-                stage.setScene(new Scene(newRoot, 800, 600));
+                stage.setScene(new Scene(newRoot, utility.Settings.HEIGHT, utility.Settings.WIDTH));
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
