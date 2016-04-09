@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import java.net.URL?>
+<?import javafx.scene.text.Text?>
 <AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="startscreenController">
 
@@ -25,6 +26,18 @@
         <Button fx:id="helpButton" alignment="CENTER">INSTRUCTIONS</Button>
         <Button fx:id="highscoresButton" alignment="CENTER">HIGHSCORES</Button>
         <Button fx:id="exitButton" alignment="CENTER">EXIT</Button>
+    </VBox>
+
+    <VBox fx:id="highscoreOverlay" styleClass="overlay" visible="false"
+        AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50"
+        AnchorPane.rightAnchor="50" AnchorPane.topAnchor="50">
+        <Text styleClass="h1">Highscore</Text>
+    </VBox>
+
+    <VBox fx:id="instructionsOverlay" styleClass="overlay" visible="false"
+          AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50"
+          AnchorPane.rightAnchor="50" AnchorPane.topAnchor="50">
+        <Text styleClass="h1">Instructions</Text>
     </VBox>
 
 </AnchorPane>

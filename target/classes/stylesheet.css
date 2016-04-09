@@ -20,3 +20,14 @@
 #root > VBox > Button:hover {
     -fx-text-fill: white;
 }
+
+.overlay {
+    -fx-background-color: grey;
+    -fx-opacity: 0.8;
+    -fx-padding: 30px;
+}
+
+.overlay > .h1 {
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+}
