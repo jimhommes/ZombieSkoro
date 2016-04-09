@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<?import javafx.scene.layout.GridPane?>
-<GridPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="startscreenController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="startscreenController">
 
+    <stylesheets>
+        <URL value="@stylesheet.css"/>
+    </stylesheets>
 
+    <VBox alignment="CENTER" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
 
-</GridPane>
+        <ImageView fx:id="logo" preserveRatio="true" pickOnBounds="true">
+            <Image url="levels/TitleScreen/TitleScreen.png" backgroundLoading="true"/>
+        </ImageView>
+
+        <Button fx:id="startButton" alignment="CENTER">START</Button>
+        <Button fx:id="helpButton" alignment="CENTER">INSTRUCTIONS</Button>
+        <Button fx:id="highscoresButton" alignment="CENTER">HIGHSCORES</Button>
+        <Button fx:id="exitButton" alignment="CENTER">EXIT</Button>
+    </VBox>
+
+</AnchorPane>

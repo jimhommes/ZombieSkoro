@@ -1,5 +1,7 @@
 import javafx.fxml.Initializable;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +16,12 @@ import java.util.ResourceBundle;
 public class startscreenController implements Initializable {
 
 
-    public GridPane root;
+    public AnchorPane root;
+    public Button startButton;
+    public ImageView logo;
+    public Button helpButton;
+    public Button highscoresButton;
+    public Button exitButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
