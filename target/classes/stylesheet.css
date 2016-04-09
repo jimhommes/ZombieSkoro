@@ -31,3 +31,13 @@
     -fx-font-size: 20;
     -fx-text-fill: white;
 }
+
+#clickToStart > Text {
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+}
+
+#clickToStart {
+    -fx-alignment: center;
+}

@@ -24,10 +24,6 @@ public class Input {
     // -------------------------------------------------
     private BitSet keyboardBitSet = new BitSet();
 
-    public static final KeyCode UP_KEY = Settings.getKeyCode("UP_KEY", KeyCode.UP);
-    public static final KeyCode DOWN_KEY = Settings.getKeyCode("DOWN_KEY", KeyCode.DOWN);
-    public static final KeyCode LEFT_KEY = Settings.getKeyCode("LEFT_KEY", KeyCode.LEFT);
-    public static final KeyCode RIGHT_KEY = Settings.getKeyCode("RIGHT_KEY", KeyCode.RIGHT);
     public static final KeyCode PRIMARY_WEAPON_KEY = Settings
             .getKeyCode("PRIMARY_WEAPON_KEY", KeyCode.SPACE);
     public static final KeyCode SECONDARY_WEAPON_KEY = Settings
@@ -91,7 +87,7 @@ public class Input {
      * @return True if the up key is pressed.
      */
     public boolean isMoveUp() {
-        return keyboardBitSet.get(UP_KEY.ordinal()) && !keyboardBitSet.get(DOWN_KEY.ordinal());
+        return keyboardBitSet.get(W_KEY.ordinal()) && !keyboardBitSet.get(S_KEY.ordinal());
     }
 
     /**
@@ -100,7 +96,7 @@ public class Input {
      * @return True if the down key is pressed.
      */
     public boolean isMoveDown() {
-        return keyboardBitSet.get(DOWN_KEY.ordinal()) && !keyboardBitSet.get(UP_KEY.ordinal());
+        return keyboardBitSet.get(S_KEY.ordinal()) && !keyboardBitSet.get(W_KEY.ordinal());
     }
 
     /**
@@ -109,8 +105,8 @@ public class Input {
      * @return True if the left key is pressed.
      */
     public boolean isMoveLeft() {
-        return keyboardBitSet.get(LEFT_KEY.ordinal())
-                && !keyboardBitSet.get(RIGHT_KEY.ordinal());
+        return keyboardBitSet.get(A_KEY.ordinal())
+                && !keyboardBitSet.get(D_KEY.ordinal());
     }
 
 
@@ -120,8 +116,8 @@ public class Input {
      * @return True if the right key is pressed.
      */
     public boolean isMoveRight() {
-        return keyboardBitSet.get(RIGHT_KEY.ordinal())
-                && !keyboardBitSet.get(LEFT_KEY.ordinal());
+        return keyboardBitSet.get(D_KEY.ordinal())
+                && !keyboardBitSet.get(A_KEY.ordinal());
     }
 
     /**
