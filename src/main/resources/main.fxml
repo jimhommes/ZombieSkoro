@@ -1,6 +1,11 @@
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
 <AnchorPane fx:id="root" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
     <children>
-
+        <VBox fx:id="clickToStart" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <Text>Click to Start</Text>
+        </VBox>
     </children>
 </AnchorPane>
