@@ -12,7 +12,7 @@ public class Settings {
     public static int HEIGHT = 800;
     public static int WIDTH = 600;
 
-    public static String PLAYERLEGS = "sprites/Character/CharacterAnim/Poging2/Character01.png";
+    public static String PLAYERLEGS = "sprites/Character/CharacterAnim/Poging2/Anim.gif";
     public static String PLAYERTOP = "sprites/Character/Torsos/Sprites/Torso.png";
 
 }

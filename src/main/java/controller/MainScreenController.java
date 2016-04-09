@@ -25,13 +25,14 @@ public class MainScreenController implements Observer {
         this.images = new ArrayList<>();
     }
 
-    public int addImage(String path) {
+    public int addImage(String path, boolean visible) {
         ImageView imageView = new ImageView(
                 new Image(getClass()
                 .getClassLoader()
                 .getResource(path).toExternalForm())
         );
 
+        imageView.setVisible(visible);
         playfield.getChildren().add(imageView);
         images.add(imageView);
         return images.size() - 1;

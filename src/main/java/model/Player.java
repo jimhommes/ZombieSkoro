@@ -23,8 +23,8 @@ public class Player extends Observable {
         this.x_coord = 10;
         this.y_coord = 10;
 
-        spriteTopID = msc.addImage(Settings.PLAYERTOP);
-        spriteBottomID = msc.addImage(Settings.PLAYERLEGS);
+        spriteBottomID = msc.addImage(Settings.PLAYERLEGS, false);
+        spriteTopID = msc.addImage(Settings.PLAYERTOP, true);
 
         addObserver(msc);
         notifyObservers();
