@@ -9,7 +9,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.text.Text?>
 <AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="startscreenController">
+            fx:controller="controller.StartscreenController">
 
     <stylesheets>
         <URL value="@stylesheet.css"/>

@@ -1,9 +1,16 @@
+package controller;
+
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,8 +21,7 @@ import java.util.ResourceBundle;
  * @version 1.0
  * @since 4/7/2016
  */
-public class startscreenController implements Initializable {
-
+public class StartscreenController implements Initializable {
 
     public AnchorPane root;
     public Button startButton;
@@ -35,6 +41,17 @@ public class startscreenController implements Initializable {
 
     private void addEvents() {
         //StartButton -> starts game
+        startButton.setOnAction(event -> {
+            Stage stage = (Stage) root.getScene().getWindow();
+            Parent newRoot;
+            try {
+                newRoot = FXMLLoader.load(getClass().getClassLoader().getResource("main.fxml"));
+                stage.setScene(new Scene(newRoot, 800, 600));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         //Instructions -> overlay with instructions
         helpButton.setOnAction(event -> instructionsOverlay.setVisible(true));
