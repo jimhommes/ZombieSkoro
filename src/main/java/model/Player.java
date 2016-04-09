@@ -20,9 +20,14 @@ public class Player extends Observable {
     int x_coord;
     int y_coord;
 
-    int spriteTopID;
     int spriteBottomID;
+    int spritePistolID;
+    int spriteSMGID;
+    int spriteBazookaID;
+    int spriteSniperID;
     boolean walking;
+
+    int equipped;
 
     AnimationTimer timer;
 
@@ -31,11 +36,15 @@ public class Player extends Observable {
         this.y_coord = 10;
         this.input = input;
         this.walking = false;
+        this.equipped = Settings.PLAYERPISTOL;
 
         addObserver(msc);
 
-        spriteBottomID = msc.addImage(Settings.PLAYERLEGS, false);
-        spriteTopID = msc.addImage(Settings.PLAYERTOP, true);
+        spriteBottomID = msc.addImage(Settings.SPRITE_PLAYERLEGS, true, 75);
+        spritePistolID = msc.addImage(Settings.SPRITE_PLAYERPISTOL, true);
+        spriteSMGID = msc.addImage(Settings.SPRITE_PLAYERSMG, false);
+        spriteBazookaID = msc.addImage(Settings.SPRITE_PLAYERBAZOOKA, false);
+        spriteSniperID = msc.addImage(Settings.SPRITE_PLAYERSNIPER, false);
 
         timer = createTimer();
         timer.start();
@@ -83,9 +92,20 @@ public class Player extends Observable {
         return y_coord;
     }
 
-    public int getSpriteTopID() {
+    public int getSpritePistolID() {
+        return spritePistolID;
+    }
 
-        return spriteTopID;
+    public int getSpriteSMGID() {
+        return spriteSMGID;
+    }
+
+    public int getSpriteBazookaID() {
+        return spriteBazookaID;
+    }
+
+    public int getSpriteSniperID() {
+        return spriteSniperID;
     }
 
     public int getSpriteBottomID() {
@@ -94,5 +114,9 @@ public class Player extends Observable {
 
     public boolean isWalking() {
         return walking;
+    }
+
+    public int getEquipped() {
+        return equipped;
     }
 }

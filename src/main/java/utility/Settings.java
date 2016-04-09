@@ -11,14 +11,22 @@ import java.util.Properties;
  * @version 1.0
  * @since 4/9/2016
  */
-public class Settings {
+public final class Settings {
 
     public static final int PLAYERSPEED = 10;
     public static int HEIGHT = 800;
     public static int WIDTH = 600;
 
-    public static String PLAYERLEGS = "sprites/Character/CharacterAnim/Poging2/Anim2.gif";
-    public static String PLAYERTOP = "sprites/Character/Torsos/Sprites/Torso.png";
+    public static String SPRITE_PLAYERLEGS = "sprites/Character/CharacterAnim/Poging2/Anim3.2.gif";
+    public static String SPRITE_PLAYERPISTOL = "sprites/Character/Torsos/Sprites/TorsoPistol.png";
+    public static String SPRITE_PLAYERSMG = "sprites/Character/Torsos/Sprites/TorsoSMG.png";
+    public static String SPRITE_PLAYERBAZOOKA = "sprites/Character/Torsos/Sprites/TorsoBazooka.png";
+    public static String SPRITE_PLAYERSNIPER = "sprites/Character/Torsos/Sprites/TorsoSniper.png";
+
+    public static final int PLAYERPISTOL = 1;
+    public static final int PLAYERSMG = 2;
+    public static final int PLAYERBAZOOKA = 3;
+    public static final int PLAYERSNIPER = 4;
 
     private static Properties properties;
 
