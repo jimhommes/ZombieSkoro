@@ -25,7 +25,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("startscreen.fxml"));
         primaryStage.setTitle("ZombieSkoro");
-        primaryStage.setScene(new Scene(root, Settings.HEIGHT, Settings.WIDTH));
+        primaryStage.setScene(new Scene(root, Settings.WIDTH, Settings.HEIGHT));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

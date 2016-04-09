@@ -1,6 +1,7 @@
 package model;
 
 import controller.MainScreenController;
+import utility.Settings;
 
 import java.util.Observable;
 
@@ -15,10 +16,16 @@ public class Player extends Observable {
 
     int x_coord;
     int y_coord;
+    int spriteTopID;
+    int spriteBottomID;
 
     public Player(MainScreenController msc) {
         this.x_coord = 10;
         this.y_coord = 10;
+
+        spriteTopID = msc.addImage(Settings.PLAYERTOP);
+        spriteBottomID = msc.addImage(Settings.PLAYERLEGS);
+
         addObserver(msc);
         notifyObservers();
     }
