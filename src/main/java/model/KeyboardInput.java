@@ -6,6 +6,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import utility.Settings;
 
+import java.awt.*;
 import java.util.BitSet;
 
 /**
@@ -15,7 +16,7 @@ import java.util.BitSet;
  * @version 1.0
  * @since 4/9/2016
  */
-public class Input {
+public class KeyboardInput {
 
     // -------------------------------------------------
     // default key codes
@@ -35,7 +36,7 @@ public class Input {
     public static final KeyCode SHIFT_KEY = Settings.getKeyCode("SHIFT_KEY", KeyCode.SHIFT);
 
     /**
-     * "Key Pressed" handler for all input events: register pressed key in the bitset.
+     * "Key Pressed" handler for all keyboardInput events: register pressed key in the bitset.
      */
     private EventHandler<KeyEvent> keyPressedEventHandler = event -> {
 
@@ -45,7 +46,7 @@ public class Input {
 
     };
     /**
-     * "Key Released" handler for all input events: unregister released key in the bitset.
+     * "Key Released" handler for all keyboardInput events: unregister released key in the bitset.
      */
     private EventHandler<KeyEvent> keyReleasedEventHandler = event -> {
 
@@ -61,7 +62,7 @@ public class Input {
      *
      * @param mainController The MainController the player moves in.
      */
-    public Input(MainController mainController) {
+    public KeyboardInput(MainController mainController) {
         this.mainController = mainController;
     }
 
@@ -70,13 +71,13 @@ public class Input {
      */
     public void addListeners() {
 
-        mainController.addListeners(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
-        mainController.addListeners(KeyEvent.KEY_RELEASED, keyReleasedEventHandler);
+        mainController.addKeyListeners(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
+        mainController.addKeyListeners(KeyEvent.KEY_RELEASED, keyReleasedEventHandler);
 
     }
 
     // -------------------------------------------------
-    // Evaluate bitset of pressed keys and return the player input.
+    // Evaluate bitset of pressed keys and return the player keyboardInput.
     // If direction and its opposite direction are pressed simultaneously,
     // then the direction isn't handled.
     // -------------------------------------------------
@@ -164,5 +165,10 @@ public class Input {
      */
     public EventHandler<KeyEvent> getKeyReleasedEventHandler() {
         return keyReleasedEventHandler;
+    }
+
+    public int getMouseLocation(int x, int y) {
+        Point point = MouseInfo.getPointerInfo().getLocation();
+        return 0;
     }
 }

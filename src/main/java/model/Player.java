@@ -15,10 +15,12 @@ import java.util.Observable;
  */
 public class Player extends Observable {
 
-    Input input;
+    KeyboardInput keyboardInput;
+    MouseInput mouseInput;
 
-    int x_coord;
-    int y_coord;
+    double x_coord;
+    double y_coord;
+    double r_coord;
 
     int spriteBottomID;
     int spritePistolID;
@@ -29,18 +31,26 @@ public class Player extends Observable {
 
     int equipped;
 
+    double mostRecentMouseX;
+    double mostRecentMouseY;
+
     AnimationTimer timer;
 
-    public Player(MainScreenController msc, Input input) {
+    public Player(MainScreenController msc, KeyboardInput keyboardInput, MouseInput mouseInput) {
         this.x_coord = 10;
         this.y_coord = 10;
-        this.input = input;
+        this.r_coord = 0;
+        this.keyboardInput = keyboardInput;
+        this.mouseInput = mouseInput;
         this.walking = false;
         this.equipped = Settings.PLAYERPISTOL;
 
+        this.mostRecentMouseX = 0;
+        this.mostRecentMouseY = 0;
+
         addObserver(msc);
 
-        spriteBottomID = msc.addImage(Settings.SPRITE_PLAYERLEGS, true, 75);
+        spriteBottomID = msc.addImage(Settings.SPRITE_PLAYERLEGS, false, 75);
         spritePistolID = msc.addImage(Settings.SPRITE_PLAYERPISTOL, true);
         spriteSMGID = msc.addImage(Settings.SPRITE_PLAYERSMG, false);
         spriteBazookaID = msc.addImage(Settings.SPRITE_PLAYERBAZOOKA, false);
@@ -61,7 +71,18 @@ public class Player extends Observable {
     }
 
     private void move() {
-        if(!(input.isMoveLeft() || input.isMoveRight() || input.isMoveUp() || input.isMoveDown())) {
+
+        if(mouseInput.getX() != mostRecentMouseX ||
+                mouseInput.getY() != mostRecentMouseY) {
+            mostRecentMouseX = mouseInput.getX();
+            mostRecentMouseY = mouseInput.getY();
+
+            r_coord = Math.tan(Math.abs(mostRecentMouseY - y_coord) / Math.abs(mostRecentMouseX - x_coord)) * 360;
+
+            setChanged();
+        }
+
+        if(!(keyboardInput.isMoveLeft() || keyboardInput.isMoveRight() || keyboardInput.isMoveUp() || keyboardInput.isMoveDown())) {
             if(walking) {
                 walking = false;
                 setChanged();
@@ -69,26 +90,26 @@ public class Player extends Observable {
         } else {
             walking = true;
             setChanged();
-            if (input.isMoveLeft()) {
+            if (keyboardInput.isMoveLeft()) {
                 x_coord -= Settings.PLAYERSPEED;
             }
-            if (input.isMoveRight()) {
+            if (keyboardInput.isMoveRight()) {
                 x_coord += Settings.PLAYERSPEED;
             }
-            if (input.isMoveUp()) {
+            if (keyboardInput.isMoveUp()) {
                 y_coord -= Settings.PLAYERSPEED;
             }
-            if (input.isMoveDown()) {
+            if (keyboardInput.isMoveDown()) {
                 y_coord += Settings.PLAYERSPEED;
             }
         }
     }
 
-    public int getX_coord() {
+    public double getX_coord() {
         return x_coord;
     }
 
-    public int getY_coord() {
+    public double getY_coord() {
         return y_coord;
     }
 
@@ -118,5 +139,9 @@ public class Player extends Observable {
 
     public int getEquipped() {
         return equipped;
+    }
+
+    public double getR_coord() {
+        return r_coord;
     }
 }

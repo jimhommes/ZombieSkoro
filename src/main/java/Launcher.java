@@ -30,4 +30,5 @@ public class Launcher extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+
 }

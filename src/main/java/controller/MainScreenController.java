@@ -88,6 +88,8 @@ public class MainScreenController implements Observer {
                         .setVisible(true);
                 images.get(player.getSpritePistolID())
                         .relocate(player.getX_coord(), player.getY_coord());
+                images.get(player.getSpritePistolID())
+                        .setRotate(player.getR_coord());
                 break;
             case Settings.PLAYERSMG:
                 images.get(player.getSpriteSMGID())
